@@ -1,2 +1,2 @@
-paso1/
-.gitignore
+*.c
+tp
