@@ -119,7 +119,7 @@ Se terminaron de procesar los archivos. La última línea indica la cantidad de 
 
 ![Errores de generacion del ejecutable](errores_generacion_ejecutable.png)
 
-Todos los errores son del archivo `main` y se refiere a que el tipo de dato `wordscounter_t` y las funciones `wordscounter_create`, `wordscounter_process`, `wordscounter_get_words` y `wordscounter_destroy` no fueron declaradas. Se trata de un error del compilador, dado que no están declaradas el tipo de dato y las funciones no tiene forma de saber cuánto espacio ocupará cada una.
+Todos los errores son del archivo `paso1_main.c` y se refiere a que el tipo de dato `wordscounter_t` y las funciones `wordscounter_create`, `wordscounter_process`, `wordscounter_get_words` y `wordscounter_destroy` no fueron declaradas. Se trata de un error del compilador, dado que no están declaradas el tipo de dato y las funciones no tiene forma de saber cuánto espacio ocupará cada una.
 
 **c.** ¿El sistema reportó algún WARNING? ¿Por qué?
 
@@ -148,9 +148,28 @@ Todos los errores son del compilador, dado que no se incluyeron las bibliotecas 
 
 **a.** Describa en breves palabras las correcciones realizadas respecto de la versión anterior.
 
+En `paso3_wordscounter.c` se incluyó la biblioteca `stdlib.h`.
+En `paso3_wordscounter.h` se incluyeron las bibliotecas `string.h` y `stdio.h`.
+Al agregar las bibliotecas mencionadas ya no hay errores de declaración de las funciones/tipo de datos que no estaban definidas.
+
+**b.** Captura de pantalla indicando los errores de generación del ejecutable. Explicar cada uno e indicar si se trata de errores del compilador o del linker.
+
+![Errores de generación de ejecutable paso 3](errores_generacion_ejecutable_paso3.png)
+
+El único error que hay es del linker porque falta la definición de la función `wordscounter_destroy`.
+
+## Paso 4: SERCOM - Memory Leaks y Buffer Overflows
+
+**a.** Describa en breves palabras las correcciones realizadas respecto de la versión anterior.
 
 
-**b.** Captura de pantalla indicando los errores de generación del ejecutable. Explicar cada uno e
-indicar si se trata de errores del compilador o del linker.
+**b.** Captura de pantalla del resultado de ejecución con Valgrind de la prueba ‘TDA’. Describir los errores reportados por Valgrind.
 
 
+**c.** Captura de pantalla del resultado de ejecución con Valgrind de la prueba ‘Long Filename’. Describir los errores reportados por Valgrind.
+
+
+**d.** ¿Podría solucionarse este error utilizando la función strncpy? ¿Qué hubiera ocurrido con la ejecución de la prueba?
+
+
+**e.** Explicar de qué se trata un segmentation fault y un buffer overflow
