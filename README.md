@@ -64,25 +64,63 @@ Para conectar la salida estándar con la entrada estándar de 2 procesos se pued
 
 ```
 /task/student//source_unsafe/paso1_wordscounter.c:27:  Missing space before ( in while(  [whitespace/parens] [5]
+```
+Hace referencia a que falta un espacio antes del `(` del `while` en el archivo `paso1_wordscounter.c` en la línea 27.
+```
 /task/student//source_unsafe/paso1_wordscounter.c:41:  Mismatching spaces inside () in if  [whitespace/parens] [5]
+```
+La cantidad de espacios entre `(`, la condición y `)` no es igual en el archivo `paso1_wordscounter.c` en la línea 41.
+```
 /task/student//source_unsafe/paso1_wordscounter.c:41:  Should have zero or one spaces inside ( and ) in if  [whitespace/parens] [5]
+```
+Parecido al error anterior, indica que deben haber 1 o ningún espacio dentro de los paréntesis `()` en el archivo `paso1_wordcounter.c` en la ĺínea 41.
+```
 /task/student//source_unsafe/paso1_wordscounter.c:47:  An else should appear on the same line as the preceding }  [whitespace/newline] [4]
+```
+Al tener un estructura `if` y agregar un `else` este último debe ir en la misma línea que el `}` que cierra el bloque del `if` en el archivo `paso1_wordscounter.c`, línea 47.
+```
 /task/student//source_unsafe/paso1_wordscounter.c:47:  If an else has a brace on one side, it should have it on both  [readability/braces] [5]
+```
+FALTA RESPONDER //TO-DO
+```
 /task/student//source_unsafe/paso1_wordscounter.c:48:  Missing space before ( in if(  [whitespace/parens] [5]
+```
+Falta un espacio entre `if` y `(` en el archivo `paso1_wordscounter.c` en la línea 48.
+```
 /task/student//source_unsafe/paso1_wordscounter.c:53:  Extra space before last semicolon. If this should be an empty statement, use {} instead.  [whitespace/semicolon] [5]
+```
+Hay un espacio de más antes de un `;` en el archivo `paso1_wordscounter.c` en la línea 53. Como el programa de detección de errores no sabe si se trata de sólo un espacio de más o si se quería hacer una declaración vacía, recomienda usar `{}`.
+```
 /task/student//source_unsafe/paso1_wordscounter.h:5:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+```
+Cada línea debería tener no más de 80 caracteres. Esto lo indica en el archivo `paso1_wordscounter.h`, línea 5.
+```
 /task/student//source_unsafe/paso1_main.c:12:  Almost always, snprintf is better than strcpy  [runtime/printf] [4]
+```
+Sugiere utilizar `snprintf` en vez de `strcpy` porque este último no toma en cuenta la cantidad de bytes a escribir y podría llevar a un overflow. Este se indica en el archivo `paso1_main.c`, línea 12.
+```
 /task/student//source_unsafe/paso1_main.c:15:  An else should appear on the same line as the preceding }  [whitespace/newline] [4]
+```
+`else` debería estar en la misma línea que `}` del `if`. Indicado en el archivo `paso1_main.c`, línea 15.
+```
 /task/student//source_unsafe/paso1_main.c:15:  If an else has a brace on one side, it should have it on both  [readability/braces] [5]
+```
+FALTA RESPONDER // TO-DO
+```
 Done processing /task/student//source_unsafe/paso1_wordscounter.c
 Done processing /task/student//source_unsafe/paso1_wordscounter.h
 Done processing /task/student//source_unsafe/paso1_main.c
 Total errors found: 11
 ```
+Se terminaron de procesar los archivos. La última línea indica la cantidad de errores encontrados.
 
 
 **b.** Captura de pantalla indicando los errores de generación del ejecutable. Explicar cada uno e indicar si se trata de errores del compilador o del linker.
 
+![Errores de generacion del ejecutable](errores_generacion_ejecutable.png)
 
+Todos los errores son del archivo `main` y se refiere a que el tipo de dato `wordscounter_t` y las funciones `wordscounter_create`, `wordscounter_process`, `wordscounter_get_words` y `wordscounter_destroy` no fueron declaradas. Se trata de un error del compilador, dado que no están declaradas el tipo de dato y las funciones no tiene forma de saber cuánto espacio ocupará cada una.
 
 **c.** ¿El sistema reportó algún WARNING? ¿Por qué?
+No, porque se compiló con el flag `-Werror` que trata a todos los `warning` como errores.
+
