@@ -10,7 +10,7 @@ Link: https://github.com/SBen-IV/tp0
 
 **a.** Capturas de pantalla de la ejecución del aplicativo (con y sin Valgrind).
 
-![Imagen Paso 0](imagen_paso_0.png)
+![Imagen Paso 0](imagenes/imagen_paso_0.png)
 
 **b.** ¿Para qué sirve Valgrind? ¿Cuáles son sus opciones más comunes?
 
@@ -117,7 +117,7 @@ Se terminaron de procesar los archivos. La última línea indica la cantidad de 
 
 **b.** Captura de pantalla indicando los errores de generación del ejecutable. Explicar cada uno e indicar si se trata de errores del compilador o del linker.
 
-![Errores de generacion del ejecutable](errores_generacion_ejecutable.png)
+![Errores de generacion del ejecutable](imagenes/errores_generacion_ejecutable.png)
 
 Todos los errores son del archivo `paso1_main.c` y se refiere a que el tipo de dato `wordscounter_t` y las funciones `wordscounter_create`, `wordscounter_process`, `wordscounter_get_words` y `wordscounter_destroy` no fueron declaradas. Se trata de un error del compilador, dado que no están declaradas el tipo de dato y las funciones no tiene forma de saber cuánto espacio ocupará cada una.
 
@@ -136,11 +136,11 @@ En `paso2_wordscounter.h` se disminuyó la cantidad de caracteres en la línea 5
 **b.** Captura de pantalla indicando la correcta ejecución de verificación de normas de
 programación.
 
-![Correcta ejecución de verificación de normas de programación](ejecucion_verificacion_de_normas_paso2.png)
+![Correcta ejecución de verificación de normas de programación](imagenes/ejecucion_verificacion_de_normas_paso2.png)
 
 **c.** Captura de pantalla indicando los errores de generación del ejecutable. Explicar cada uno e indicar si se trata de errores del compilador o del linker.
 
-![Errores de generación de ejecutable paso 2](errores_generacion_ejecutable_paso2.png)
+![Errores de generación de ejecutable paso 2](imagenes/errores_generacion_ejecutable_paso2.png)
 
 Todos los errores son del compilador, dado que no se incluyeron las bibliotecas `stdio.h`, `stdlib.h` y `stddef.h` en `paso2_wordscounter.h` el mismo no puede saber el tamaño de `size_t` y `FILE` ni cómo está definida la función `malloc`.
 
@@ -154,7 +154,7 @@ Al agregar las bibliotecas mencionadas ya no hay errores de declaración de las 
 
 **b.** Captura de pantalla indicando los errores de generación del ejecutable. Explicar cada uno e indicar si se trata de errores del compilador o del linker.
 
-![Errores de generación de ejecutable paso 3](errores_generacion_ejecutable_paso3.png)
+![Errores de generación de ejecutable paso 3](imagenes/errores_generacion_ejecutable_paso3.png)
 
 El único error que hay es del linker porque falta la definición de la función `wordscounter_destroy`.
 
@@ -330,19 +330,19 @@ En `paso5_wordscounter.c` se modificó `delim_words`, ahora no se pide memoria d
 
 Las pruebas fallan porque el programa no devuelve los valores esperados. SECROM los muestra de la siguiente forma, siendo el primer valor el devuelto por el programa y el segundo valor el esperado:
 
-![Errores pruebas Invalid File y Single Word](error_single_word_invalid_file_paso_5.png)
+![Errores pruebas Invalid File y Single Word](imagenes/error_single_word_invalid_file_paso_5.png)
 
 **c.** Captura de pantalla de la ejecución del comando hexdump. ¿Cuál es el último carácter del archivo input_single_word.txt?
 
-![Hexdump de input_single_word](hexdump_single_word.png)
+![Hexdump de input_single_word](imagenes/hexdump_single_word.png)
 
 El último caracter es la `d` haciendo que el programa no detecte cuándo se llegó al final del archivo.
 
 **d.** Captura de pantalla con el resultado de la ejecución con gdb. Explique brevemente los comandos utilizados en gdb. ¿Por qué motivo el debugger no se detuvo en el breakpoint de la línea 45: self->words++; ?
 
-![GDB parte 1](gdb_parte_1.png)
+![GDB parte 1](imagenes/gdb_parte_1.png)
 
-![GDB parte 2](gdb_parte_2.png)
+![GDB parte 2](imagenes/gdb_parte_2.png)
 
 Comandos:
 
@@ -367,9 +367,9 @@ En `paso6_wordscounter.c` se declaró la constante `DELIM_WORDS` con `#define`, 
 
 **b.** Captura de pantalla mostrando todas las entregas realizadas, tanto exitosas como fallidas.
 
-![Submission history 1](submission_history_1.png)
-![Submission history 2](submission_history_2.png)
+![Submission history 1](imagenes/submission_history_1.png)
+![Submission history 2](imagenes/submission_history_2.png)
 
 **c.** Captura de pantalla mostrando la ejecución de la prueba ‘Single Word’ de forma local con las distintas variantes indicadas. 
 
-![Single word test paso 6](single_word_test_paso6.png)
+![Single word test paso 6](imagenes/single_word_test_paso6.png)
