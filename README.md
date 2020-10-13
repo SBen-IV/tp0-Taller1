@@ -20,6 +20,8 @@ Valgrind es usado para detectar mal uso de memoria en un programa, por ejemplo, 
 
 `sizeof()` es una función que devuelve el tamaño en bytes del tipo de dato de la variable que se le pasa por parámetro. El valor que devuelva va a depender de la arquitectura en la que se encuentre el programa, por ejemplo, en 32 bits el tamaño de un `short` será de 2 bytes mientras que en 64 bits será de 4 bytes.
 
+> No necesariamente, depende del modelo de datos. En los modelos LP64 (los más habituales), short es de 2 bytes
+
 **d.** ¿El sizeof() de una struct de C es igual a la suma del sizeof() de cada uno sus elementos?
 Justifique mediante un ejemplo.
 
@@ -241,6 +243,10 @@ Se hizo uso de más memoria de la que se liberó. En este caso, se hicieron 218 
 ==00:00:00:01.006 59==
 ```
 Acá se hace un resumen de la memoria que se perdió y la que se pudo alcanzar y liberar aún sin haberlo hecho explícitamente en el programa.
+
+> `definitely lost` es memoria para la cual no hay puntero que le referencie
+> `still reacheable` es memoria para la cual hay alguna referencia viva
+
 ```
 ==00:00:00:01.006 59== For lists of detected and suppressed errors, rerun with: -s
 ==00:00:00:01.006 59== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
@@ -317,6 +323,9 @@ No, hubiera pasado lo mismo dado que las funciones `memcpy` y `strncpy` no verif
 Un segmentation fault sucede cuando un programa quiere acceder (normalmente a través de una variable) a un espacio de memoria que no le pertenece.
 
 Un buffer overflow es cuando se pasa del tamaño de la variable que almacena el valor proveniente del input.
+
+> Un segmentation fault es cuando se intenta realizar una **operación no permitida** sobre un segmento de memoria, por ejemplo, leer un segmento que no me pertenece, o escribir en uno que es solo lectura, como el code segment.
+> Como dato de color Esta operación es detectada por hardware (la MMU lo detecta), y lanza una señal al sistema operativo. Esta señal es el famoso *SIGSEGV*. El buffer overflow es dentro del mismo segmento de memoria, no es advertido por hardware (es más peligroso).
 
 ## Paso 5: SERCOM - Código de retorno y salida estándar
 
